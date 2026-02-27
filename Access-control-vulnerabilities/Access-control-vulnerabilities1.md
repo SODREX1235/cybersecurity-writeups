@@ -1,44 +1,35 @@
-#User role controlled by request parameter (PortSwigger)
+# Reflected XSS into attribute with angle brackets HTML-encoded(PortSwigger)
+
+## 📌 Description
+
+This lab contains a reflected cross-site scripting vulnerability in the search blog functionality where angle brackets are HTML-encoded.
 
 
-##📌 Description
 
-This lab contains an admin panel at /admin that identifies administrators using a forgeable cookie.
+## 🎯 Objective
 
-##🎯 Objective
+To solve this lab, perform a cross-site scripting attack that injects an attribute and calls the alert function.
 
-To solve this lab, access the admin panel and use it to delete the user carlos.
 
-##🔎 Recon
 
-I navigated to /admin and noticed that access to the admin panel was denied.
+## 🔎 Recon
 
-Then, I went to the login page and logged in using the provided credentials:
+I typed something random to see the page's source code and see how what I wrote was passed through the page's source code.
 
-wiener:peter
+Example:
+I typed "test" in the text field.
 
-Using Burp Suite, I turned interception on and enabled response interception. After submitting the login form and forwarding the request, I observed that the server response set a cookie:
+And my input appeared in a value tag like this: value="test"
 
-Admin=false
 
-This indicated that the application was using a client-side controlled cookie to determine administrative privileges.
+## 💥 Exploitation
 
-##💥 Exploitation
+I tested a few payloads and after a while, the one that worked was: "onmouseover="alert(1)
 
-Since the application relied on a forgeable cookie, I modified the response before forwarding it.
+And the script executed successfully, confirming the vulnerability.
 
-I changed:
 
-Admin=false
 
-to:
+## 🧠 Lessons Learned
 
-Admin=true
-
-After forwarding the modified response, I accessed /admin again, and this time the admin panel was accessible.
-
-From there, I located the user carlos and successfully deleted the account, solving the lab.
-
-##🧠 Lessons Learned
-
-This lab reinforced how dangerous it is to trust client-side data for access control decisions.
+This lab reinforced how improper output handling can lead to client-side code execution.
