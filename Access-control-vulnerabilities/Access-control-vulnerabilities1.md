@@ -13,7 +13,7 @@ To solve this lab, access the admin panel and use it to delete the user carlos.
 
 I navigated to /admin and noticed that access to the admin panel was denied.
 
-Then, I went to the login page and logged in using the provided credentials:
+Then, I went to the login page and logged in using Using the credentials that the lab provided before starting, the login of a regular user in this case:
 
 wiener:peter
 
