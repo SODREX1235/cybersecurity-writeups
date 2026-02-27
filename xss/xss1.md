@@ -4,13 +4,13 @@
 
 This lab contains a reflected cross-site scripting vulnerability in the search blog functionality where angle brackets are HTML-encoded.
 
----
+
 
 ## 🎯 Objective
 
 To solve this lab, perform a cross-site scripting attack that injects an attribute and calls the alert function.
 
----
+
 
 ## 🔎 Recon
 
@@ -20,7 +20,7 @@ Example:
 I typed "test" in the text field.
 
 And my input appeared in a value tag like this: value="test"
----
+
 
 ## 💥 Exploitation
 
@@ -28,7 +28,7 @@ I tested a few payloads and after a while, the one that worked was: "onmouseover
 
 And the script executed successfully, confirming the vulnerability.
 
----
+
 
 ## 🧠 Lessons Learned
 
