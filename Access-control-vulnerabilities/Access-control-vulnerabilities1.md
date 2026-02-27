@@ -1,5 +1,7 @@
-User role controlled by request parameter (PortSwigger)
-#📌 Description
+#User role controlled by request parameter (PortSwigger)
+
+
+##📌 Description
 
 This lab contains an admin panel at /admin that identifies administrators using a forgeable cookie.
 
