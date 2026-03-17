@@ -27,13 +27,7 @@ This indicated that the application was using a client-side controlled cookie to
 
 Since the application relied on a forgeable cookie, I modified the response before forwarding it.
 
-I changed:
-
-Admin=false
-
-to:
-
-Admin=true
+I changed: Admin=false. to: Admin=true
 
 After forwarding the modified response, I accessed /admin again, and this time the admin panel was accessible.
 
